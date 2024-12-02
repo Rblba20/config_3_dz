@@ -9,7 +9,7 @@
 
 
 (def app [
-    name => "MyApp",
-    version => "1.0.0",
-    features => [logging => "true", metrics => "false"]
+    name => 90,
+    version => 56,
+    features => [logging => 21, metrics => 78]
 ]);

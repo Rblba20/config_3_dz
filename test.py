@@ -9,13 +9,13 @@ class TestConfigParser(unittest.TestCase):
         self.parser = ConfigParser()
 
     def test_constant_declaration(self):
-        """Тест объявления константы."""
+        # Тест объявления константы.
         text = "(def timeout 30);"
         result = self.parser.parse(text)
         self.assertEqual(result, {"timeout": 30})
 
     def test_dictionary_parsing(self):
-        """Тест обработки словаря."""
+        # Тест обработки словаря.
         text = "(def settings [mode => \"production\", retrylimit => 3, logging => \"enabled\"]);"
         result = self.parser.parse(text)
         expected = {
@@ -28,7 +28,7 @@ class TestConfigParser(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_nested_dictionary(self):
-        """Тест вложенных словарей."""
+        # Тест вложенных словарей.
         # text = "(def settings [mode => \"production\", retrylimit => [host => 3, port => 5432], logging => \"enabled\"]);"
         text = "(def config [db => [host => 23, port => 5432], app => [debug => 67]]);"
         result = self.parser.parse(text)
@@ -41,7 +41,7 @@ class TestConfigParser(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_constant_substitution(self):
-        """Тест подстановки константы."""
+        # Тест подстановки константы.
         text = "(def timeout 30); (def settings [retrylimit => #{timeout}]);"
         result = self.parser.parse(text)
         expected = {
@@ -51,7 +51,7 @@ class TestConfigParser(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_comments_removal(self):
-        """Тест удаления комментариев."""
+        # Тест удаления комментариев.
         text = """
         :: This is a single-line comment
         (def timeout 30);
@@ -80,7 +80,7 @@ class TestConfigParser(unittest.TestCase):
     #         self.parser.parse(text)
 
     def test_different_domains_example1(self):
-        """Пример 1: Конфигурация сервера."""
+        # Пример 1: Конфигурация сервера.
         text = """
         (def server [
             host => "127.0.0.1",
@@ -99,7 +99,7 @@ class TestConfigParser(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_different_domains_example2(self):
-        """Пример 2: Конфигурация приложения."""
+        # Пример 2: Конфигурация приложения.
         text = """
         (def app [
             name => "MyApp",
