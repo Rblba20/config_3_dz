@@ -1,0 +1,15 @@
+:: Настройки системы
+(def timeout 30);
+(def settings [
+    mode => 34,
+    retrylimit => #{timeout},
+    logging => 67
+]);
+
+
+
+(def app [
+    name => "MyApp",
+    version => "1.0.0",
+    features => [logging => "true", metrics => "false"]
+]);

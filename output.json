@@ -1,0 +1,10 @@
+{
+    "app": {
+        "name": "MyApp",
+        "version": "1.0.0",
+        "features": {
+            "logging": "true",
+            "metrics": "false"
+        }
+    }
+}
